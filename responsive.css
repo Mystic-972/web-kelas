@@ -1,0 +1,172 @@
+/* === Design for Mobile === */
+
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {
+    padding: 15px 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+
+  header p {
+    font-size: 0.9em;
+    margin: 0;
+  }
+
+  #theme-toggle {
+    position: static;
+    display: block;
+    margin: 10px auto 0;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    background: var(--nav-bg);
+    border: 1px solid var(--section-border);
+    border-radius: 5px;
+    color: var(--nav-text);
+  }
+
+  /* Navigation */
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    position: static;
+  }
+
+  nav a {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--section-border);
+    border-radius: 5px;
+    background: var(--nav-bg);
+  }
+
+  /* Main content padding */
+  main {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  /* Sections: margin dan padding */
+  section {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    scroll-margin-top: 100px; 
+  }
+
+  section h2 {
+    font-size: 1.1em;
+    padding: 10px;
+  }
+
+  /* Tables: scrols */
+  table {
+    overflow-x: auto;
+    display: table;
+    width: 100%;
+    min-width: 350px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    font-size: 0.9em;
+    min-width: 100px;
+    word-break: break-word;
+  }
+
+  /* Wali Kelas: ukuran gambar*/
+  .wali-content img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .wali-info h3 {
+    font-size: 1.1em;
+  }
+
+  .wali-info p {
+    font-size: 0.85em;
+  }
+
+  .statistik-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .statistik-box {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  /* Pengumuman: padding */
+  .info ul {
+    padding: 10px 15px;
+  }
+
+  .info li {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  /* Galeri: Stack gambar */
+  .galeri-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .galeri-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Footer: Stack dan center */
+  footer {
+    padding: 10px;
+    font-size: 0.85em;
+  }
+
+  footer a.ig-link {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9em;
+  }
+
+  /* text dan spasi*/
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+/* besar tabel  */
+@media (min-width: 769px) and (max-width: 1024px) {
+  main {
+    max-width: 95%;
+  }
+
+  nav {
+    padding: 15px;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  .galeri-container img {
+    width: 48%;
+  }
+}
+
+/* transisi semua device*/
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,164 @@
+/* === Pengumuman === */
+.info ul {
+  list-style: none;
+  padding: 15px 20px;
+  margin: 0;
+}
+
+.info li {
+  background-color: var(--component-bg);
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--section-border);
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+.info li:hover { transform: translateX(5px); }
+
+/* === Wali Kelas === */
+.wali {
+  background: var(--section-bg);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  overflow: hidden;
+  padding: 25px 15px;
+  text-align: center;
+}
+.wali h2 {
+  background-color: var(--section-header-bg);
+  color: var(--section-header-text);
+  margin: -25px -15px 20px -15px;
+  padding: 12px;
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--section-border);
+}
+.wali-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.wali-content img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px var(--shadow);
+  border: 3px solid var(--section-border);
+}
+.wali-info h3 { margin: 10px 0 5px; font-size: 1.2em; color: var(--component-text); }
+.wali-info p { margin: 3px 0; color: var(--component-secondary); font-size: 0.95em; }
+
+/* === Galeri Kelas === */
+.galeri {
+  background: var(--section-bg);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  overflow: hidden;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.galeri h2 {
+  background-color: var(--section-header-bg);
+  color: var(--section-header-text);
+  margin: 0;
+  padding: 12px;
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--section-border);
+}
+.galeri-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+}
+.galeri-container img {
+  width: 45%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.galeri-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* === Data Mahasiswa === */
+.data-Mahasiswa {
+  background: var(--section-bg);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+
+.data-Mahasiswa h2 {
+  background-color: var(--section-header-bg);
+  color: var(--section-header-text);
+  margin: -20px -20px 20px -20px;
+  padding: 12px;
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--section-border);
+}
+
+.statistik-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.statistik-box {
+  background-color: var(--component-bg);
+  border-radius: 10px;
+  padding: 15px 25px;
+  width: 150px;
+  box-shadow: 0 3px 8px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statistik-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.statistik-box h3 {
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.statistik-box p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.statistik-box.total {
+  border-top: 4px solid var(--stat-total);
+}
+
+.statistik-box.laki {
+  border-top: 4px solid var(--stat-laki);
+}
+
+.statistik-box.perempuan {
+  border-top: 4px solid var(--stat-perempuan);
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .statistik-box {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+

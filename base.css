@@ -1,0 +1,418 @@
+/* === CSS Variables for Theming === */
+:root {
+  /* Dark Mode (Default) */
+  --bg-color: #2e3440;
+  --text-color: #eceff4;
+  --header-bg: #3b4252;
+  --header-text: #eceff4;
+  --header-secondary: #d8dee9;
+  --nav-bg: #434c5e;
+  --nav-text: #eceff4;
+  --nav-hover: #88c0d0;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --section-bg: #3b4252;
+  --section-header-bg: #4c566a;
+  --section-header-text: #eceff4;
+  --section-border: #5e81ac;
+  --table-th-bg: #434c5e;
+  --table-th-text: #d8dee9;
+  --table-td-text: #e5e9f0;
+  --footer-bg: #3b4252;
+  --footer-text: #d8dee9;
+  --footer-border: #4c566a;
+  --component-bg: #434c5e;
+  --component-text: #e5e9f0;
+  --component-secondary: #d8dee9;
+  --accent: #88c0d0;
+  --stat-total: #5e81ac;
+  --stat-laki: #81a1c1;
+  --stat-perempuan: #b48ead;
+  --footer-bg-special: #2b3a55;
+  --footer-text-special: #ffffff;
+  --footer-border-special: #4b9ce2;
+  --ig-link: #ffb6c1;
+  --ig-hover: #4b9ce2;
+}
+
+.light-mode {
+  /* Light Mode */
+  --bg-color: #f8f9fa;
+  --text-color: #2e3440;
+  --header-bg: #ffffff;
+  --header-text: #2e3440;
+  --header-secondary: #6c757d;
+  --nav-bg: #e9ecef;
+  --nav-text: #2e3440;
+  --nav-hover: #007bff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --section-bg: #ffffff;
+  --section-header-bg: #f8f9fa;
+  --section-header-text: #2e3440;
+  --section-border: #dee2e6;
+  --table-th-bg: #e9ecef;
+  --table-th-text: #495057;
+  --table-td-text: #212529;
+  --footer-bg: #f8f9fa;
+  --footer-text: #6c757d;
+  --footer-border: #dee2e6;
+  --component-bg: #ffffff;
+  --component-text: #212529;
+  --component-secondary: #6c757d;
+  --accent: #007bff;
+  --stat-total: #28a745;
+  --stat-laki: #17a2b8;
+  --stat-perempuan: #dc3545;
+  --footer-bg-special: #e9ecef;
+  --footer-text-special: #212529;
+  --footer-border-special: #007bff;
+  --ig-link: #dc3545;
+  --ig-hover: #007bff;
+}
+
+/* === Dasar Tampilan === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Header === */
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  text-align: center;
+  padding: 25px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1em;
+  color: var(--header-secondary);
+}
+
+/* Toggle Button */
+#theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--header-text);
+  transition: color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  color: var(--nav-hover);
+}
+
+/* === Navigasi === */
+nav {
+  background-color: var(--nav-bg);
+  text-align: center;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 6px var(--shadow);
+}
+
+nav a {
+  color: var(--nav-text);
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--nav-hover);
+  border-bottom: 2px solid var(--nav-hover);
+}
+
+/* === Konten Utama === */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* === Scroll Animations === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* CSS LENGKAP UNTUK LINK PENTING       */
+
+.link-penting {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.link-penting h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.link-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1f2937;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.link-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover .link-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.link-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.link-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.link-info p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  opacity: 0.8;
+}
+
+/* Individual Card Colors (Light Mode)  */
+
+.classroom .link-icon {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.classroom:hover {
+  border-color: #2e7d32;
+}
+
+.drive .link-icon {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.drive:hover {
+  border-color: #ef6c00;
+}
+
+.whatsapp .link-icon {
+  background: #e8f5e9;
+  color: #25d366;
+}
+
+.whatsapp:hover {
+  border-color: #25d366;
+}
+
+.lms .link-icon {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.lms:hover {
+  border-color: #1565c0;
+}
+
+
+/* Dark Mode Styles                     */
+
+.dark-mode .link-card {
+  background: #374151;
+  color: #f9fafb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .link-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background: #4b5563;
+}
+
+.dark-mode .link-info h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .link-info p {
+  color: #d1d5db;
+  opacity: 1;
+}
+
+/* Dark Mode - Individual Card Colors */
+.dark-mode .classroom .link-icon {
+  background: #065f46;
+  color: #6ee7b7;
+}
+
+.dark-mode .classroom:hover {
+  border-color: #6ee7b7;
+}
+
+.dark-mode .drive .link-icon {
+  background: #9a3412;
+  color: #fdba74;
+}
+
+.dark-mode .drive:hover {
+  border-color: #fdba74;
+}
+
+.dark-mode .whatsapp .link-icon {
+  background: #065f46;
+  color: #4ade80;
+}
+
+.dark-mode .whatsapp:hover {
+  border-color: #4ade80;
+}
+
+.dark-mode .lms .link-icon {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+.dark-mode .lms:hover {
+  border-color: #93c5fd;
+}
+
+/* Responsive Design  */
+
+@media (max-width: 768px) {
+  .link-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .link-penting {
+    padding: 30px 15px;
+  }
+  
+  .link-penting h2 {
+    font-size: 1.5rem;
+  }
+  
+  .link-card {
+    padding: 15px;
+  }
+  
+  .link-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .link-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .link-info h3 {
+    font-size: 1rem;
+  }
+  
+  .link-info p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+    link-penting h2 {
+    font-size: 1.3rem;
+  }
+  
+  .link-card {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .link-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .link-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}

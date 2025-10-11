@@ -1,0 +1,68 @@
+/* === Seksi umum (kartu) === */
+section {
+  background: var(--section-bg);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+section h2 {
+  background-color: var(--section-header-bg);
+  color: var(--section-header-text);
+  margin: 0;
+  padding: 12px;
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--section-border);
+}
+
+/* === Tabel === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--table-th-bg);
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+th {
+  background-color: var(--table-th-bg);
+  color: var(--table-th-text);
+  font-weight: 600;
+}
+
+td {
+  color: var(--table-td-text);
+}
+
+/* === Jadwal === */
+th:nth-child(1),
+td:nth-child(1) { width: 30%; }
+
+th:nth-child(2),
+td:nth-child(2) { width: 40%; }
+
+th:nth-child(3),
+td:nth-child(3) { width: 30%; }
+
+.hari { background: var(--section-bg); overflow-x: auto; }
+.hari h2 { background-color: var(--section-header-bg); border-bottom: 2px solid var(--section-border); }
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  margin-top: 40px;
+  font-size: 0.9em;
+  border-top: 1px solid var(--footer-border);
+}
+
