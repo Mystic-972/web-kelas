@@ -1,4 +1,4 @@
- function updateWaktu() {
+    function updateWaktu() {
       const hariList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
       const now = new Date();
       const hari = hariList[now.getDay()];
@@ -62,5 +62,102 @@
       observer.observe(el);
     });
 
-    // Removed slide-in-right for consistency
+    // --- LOGIN SISTEM ---
+    const loginPage = document.getElementById("login-page");
+    const loginBtn = document.getElementById("login-btn");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginError = document.getElementById("login-error");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // Cek status login
+    function checkLogin() {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        loginPage.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+      } else {
+        loginPage.style.display = "flex";
+        logoutBtn.style.display = "none";
+      }
+    }
+    // Login
+    loginBtn.addEventListener("click", () => {
+      const user = usernameInput.value.trim();
+      const pass = passwordInput.value.trim();
+
+      if ((user === "admin" && pass === "12345") || (user === "mahasiswa" && pass === "56789")) {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userType", user === "admin" ? "admin" : "student");
+        loginPage.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+        displayAnnouncements();
+        alert("Login berhasil ✅");
+      } else {
+        loginError.textContent = "Username atau password salah!";
+      }
+    });
+
+    // Logout
+    function logoutAdmin() {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userType");
+      alert("Berhasil logout!");
+      location.reload();
+    }
+
+    // --- PENGUMUMAN MANAGEMENT ---
+    // Migrate old localStorage
+    if (localStorage.getItem("isAdmin") === "true") {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userType", "admin");
+      localStorage.removeItem("isAdmin");
+    }
+    if (localStorage.getItem("isLoggedIn") === "true" && !localStorage.getItem("userType")) {
+      localStorage.setItem("userType", "student");
+    }
+
+    let announcements = JSON.parse(localStorage.getItem("announcements")) || [
+      "Besok ada kuis Algoritma — jangan lupa belajar ya!",
+      "Tugas Bahasa Inggris dikumpulkan paling lambat hari Jumat.",
+      "Tugas Matematika jangan di kerjakan minggu depan di bahas"
+    ];
+
+    function displayAnnouncements() {
+      const list = document.getElementById("pengumuman-list");
+      list.innerHTML = "";
+      announcements.forEach((ann, index) => {
+        const item = document.createElement("div");
+        item.className = "pengumuman-item";
+        item.innerHTML = `<p>${ann}</p><button class="delete-btn" data-index="${index}" style="display:none;">🗑️ Hapus</button>`;
+        list.appendChild(item);
+      });
+      if (localStorage.getItem("userType") === "admin") {
+        document.getElementById("admin-controls").style.display = "block";
+        document.querySelectorAll(".delete-btn").forEach(btn => btn.style.display = "inline-block");
+      }
+    }
+
+    // Call displayAnnouncements in checkLogin
+    checkLogin();
+    displayAnnouncements();
+
+    // Add announcement
+    document.getElementById("add-pengumuman").addEventListener("click", () => {
+      const newAnn = prompt("Masukkan pengumuman baru:");
+      if (newAnn && newAnn.trim()) {
+        announcements.push(newAnn.trim());
+        localStorage.setItem("announcements", JSON.stringify(announcements));
+        displayAnnouncements();
+      }
+    });
+
+    // Delete announcement
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("delete-btn")) {
+        const index = parseInt(e.target.dataset.index);
+        announcements.splice(index, 1);
+        localStorage.setItem("announcements", JSON.stringify(announcements));
+        displayAnnouncements();
+      }
+    });
 
