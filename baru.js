@@ -82,7 +82,7 @@
     }
     // Login
     loginBtn.addEventListener("click", () => {
-      const user = usernameInput.value.trim();
+      const user = usernameInput.value.trim().toLowerCase();
       const pass = passwordInput.value.trim();
 
       if ((user === "admin" && pass === "12345") || (user === "mahasiswa" && pass === "56789")) {
@@ -128,7 +128,7 @@
       announcements.forEach((ann, index) => {
         const item = document.createElement("div");
         item.className = "pengumuman-item";
-        item.innerHTML = `<p>${ann}</p><button class="delete-btn" data-index="${index}" style="display:none;">🗑️ Hapus</button>`;
+        item.innerHTML = `<p>${ann}</p><button class="delete-btn" data-index="${index}" style="display:none;" title="Hapus Pengumuman">🗑️</button>`;
         list.appendChild(item);
       });
       if (localStorage.getItem("userType") === "admin") {
