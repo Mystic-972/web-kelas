@@ -1,19 +1,52 @@
 /* === Pengumuman === */
-.info ul {
-  list-style: none;
-  padding: 15px 20px;
-  margin: 0;
+.info {
+  background: var(--section-bg);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  overflow: hidden;
+  padding: 20px;
 }
 
-.info li {
+.info h2 {
+  background-color: var(--section-header-bg);
+  color: var(--section-header-text);
+  margin: -20px -20px 20px -20px;
+  padding: 12px;
+  font-size: 1.3em;
+  border-bottom: 2px solid var(--section-border);
+}
+
+.pengumuman-item {
   background-color: var(--component-bg);
   margin-bottom: 8px;
   padding: 10px 12px;
   border-left: 4px solid var(--section-border);
   border-radius: 5px;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px var(--shadow);
 }
-.info li:hover { transform: translateX(5px); }
+
+.pengumuman-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #e63946;
+}
 
 /* === Wali Kelas === */
 .wali {
@@ -160,5 +193,6 @@
     max-width: 250px;
   }
 }
+
 
 
