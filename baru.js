@@ -39,6 +39,8 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
         }
       });
     }, observerOptions);
@@ -54,8 +56,5 @@
       observer.observe(el);
     });
 
-    document.querySelectorAll('.info, .jadwal').forEach(el => {
-      el.classList.add('slide-in-right');
-      observer.observe(el);
-    });
+    // Removed slide-in-right for consistency
 
