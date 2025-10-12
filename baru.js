@@ -1,5 +1,4 @@
-
-    function updateWaktu() {
+ function updateWaktu() {
       const hariList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
       const now = new Date();
       const hari = hariList[now.getDay()];
@@ -15,16 +14,23 @@
 
     if (currentTheme) {
       body.classList.add(currentTheme);
-      toggle.textContent = currentTheme === 'light-mode' ? '☀️' : '🌙';
+    } else {
+      body.classList.add('dark-mode');
     }
+    toggle.textContent = body.classList.contains('light-mode') ? '☀️' : '🌙';
 
     toggle.addEventListener('click', () => {
       body.style.opacity = '0.5';
       setTimeout(() => {
         body.classList.toggle('light-mode');
-        const theme = body.classList.contains('light-mode') ? 'light-mode' : '';
+        if (body.classList.contains('light-mode')) {
+          body.classList.remove('dark-mode');
+        } else {
+          body.classList.add('dark-mode');
+        }
+        const theme = body.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
         localStorage.setItem('theme', theme);
-        toggle.textContent = theme === 'light-mode' ? '☀️' : '🌙';
+        toggle.textContent = body.classList.contains('light-mode') ? '☀️' : '🌙';
         body.style.opacity = '1';
       }, 150);
     });
