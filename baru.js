@@ -85,28 +85,52 @@
       const user = usernameInput.value.trim().toLowerCase();
       const pass = passwordInput.value.trim();
 
-      if ((user === "admin" && pass === "12345") || (user === "mahasiswa" && pass === "56789")) {
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userType", user === "admin" ? "admin" : "student");
-        loginPage.style.display = "none";
-        logoutBtn.style.display = "inline-block";
-        displayAnnouncements();
-        alert("Login berhasil ✅");
-      } else {
-        loginError.textContent = "Username atau password salah!";
-      }
+      // Show loading animation
+      loginBtn.innerHTML = '<div class="loading"></div>Memproses...';
+      loginBtn.disabled = true;
+
+      setTimeout(() => {
+        if ((user === "admin" && pass === "12345") || (user === "mahasiswa" && pass === "56789")) {
+          // Add fade-out animation
+          loginPage.style.opacity = '0';
+          setTimeout(() => {
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("userType", user === "admin" ? "admin" : "student");
+            loginPage.style.display = "none";
+            logoutBtn.style.display = "inline-block";
+            displayAnnouncements();
+            alert("Login berhasil ✅");
+            loginPage.style.opacity = '1'; // Reset for next time
+          }, 500);
+        } else {
+          loginError.textContent = "Username atau password salah!";
+          loginBtn.innerHTML = 'Masuk';
+          loginBtn.disabled = false;
+        }
+      }, 2000); // Simulate loading time
     });
 
     // Logout
     function logoutAdmin() {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("userType");
-      alert("Berhasil logout!");
-      location.reload();
+      // Fade out main content
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userType");
+        // Show login page with fade in
+        loginPage.style.display = "flex";
+        loginPage.style.opacity = "0";
+        setTimeout(() => {
+          loginPage.style.opacity = "1";
+          document.body.style.opacity = '1'; // Reset body opacity
+          alert("Berhasil logout!");
+          location.reload();
+        }, 100);
+      }, 500);
     }
 
     // --- PENGUMUMAN MANAGEMENT ---
-    // Migrate old localStorage
+    
     if (localStorage.getItem("isAdmin") === "true") {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("userType", "admin");
@@ -141,7 +165,7 @@
     checkLogin();
     displayAnnouncements();
 
-    // Add announcement
+    // Add pengumuman
     document.getElementById("add-pengumuman").addEventListener("click", () => {
       const newAnn = prompt("Masukkan pengumuman baru:");
       if (newAnn && newAnn.trim()) {
@@ -151,7 +175,7 @@
       }
     });
 
-    // Delete announcement
+    // Delete pengumumman
     document.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-btn")) {
         const index = parseInt(e.target.dataset.index);
